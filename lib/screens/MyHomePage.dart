@@ -1,6 +1,6 @@
 
 
-import 'package:blog_app/Pages/TermsandCondition.dart';
+import 'package:blog_app/screens/TermsandCondition.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
