@@ -1,3 +1,4 @@
+import 'package:blog_app/screens/ShowTimer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,7 @@ class FrontPage extends StatefulWidget {
   _FrontPageState createState() => _FrontPageState();
 }
 
-
-
 class _FrontPageState extends State<FrontPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,56 +28,56 @@ class _FrontPageState extends State<FrontPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ShowCard(),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Padding(
-                padding: EdgeInsets.only(left: 30,right: 50.0),
-                  child: Text('How to run a More Effective Meeting',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold
-                  ),)
+                  padding: EdgeInsets.only(left: 30, right: 50.0),
+                  child: Text(
+                    'How to run a More Effective Meeting',
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  )),
+              SizedBox(
+                height: 10,
               ),
-              SizedBox(height: 10,),
-              Row(
-              children: [
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      WidgetSpan(
-                        child: Icon(Icons.timer, size: 14),
-                      ),
-                      TextSpan(
-                        text: "58m ago",
-                          style: TextStyle(color: Colors.black)
-                      ),
-                    ],
-                  ),
-                ),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      WidgetSpan(
-                        child: Icon(Icons.add_comment_rounded, size: 14),
-                      ),
-                      TextSpan(
-                          text: "68 comments",
-                          style: TextStyle(color: Colors.black)
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              Padding(
+                padding: EdgeInsets.only(left: 30, right: 50.0),
+                child: ShowTimer(),
               ),
-              Column(
-              children: [
-                Row(
+              SizedBox(
+                height: 60,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 30, right: 50.0),
+                child: Column(
                   children: [
-                    Text("Popular"),
-                    Text("Show all")
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Popular",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25),
+                        ),
+                        Text(
+                          "Show all",
+                          style:
+                              TextStyle(color: Color(0xFFFE7A37), fontSize: 15),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Container(
+                      height: 100,
+                      child: ListView(children: <Widget>[ShowCell()]),
+                    )
                   ],
                 ),
-                ShowCell()
-              ],
               )
             ],
           ),
