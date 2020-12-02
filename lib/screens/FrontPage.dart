@@ -1,6 +1,7 @@
 import 'package:blog_app/screens/ShowTimer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 
 import 'ShowCard.dart';
 import 'ShowCell.dart';
@@ -15,18 +16,74 @@ class FrontPage extends StatefulWidget {
 }
 
 class _FrontPageState extends State<FrontPage> {
+
+  get handleClick => (String value){
+    switch (value) {
+      case 'Logout':
+        break;
+      case 'Settings':
+        break;
+    }
+  };
+
+  getListViewCells(){
+    List<Widget> widgets = [];
+    widgets.add(ShowCell());
+    widgets.add(ShowCell());
+    widgets.add(ShowCell());
+    widgets.add(ShowCell());
+    return widgets;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Padding(
+                padding: EdgeInsets.only(left: 30, right: 20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ClipOval(
+                      child: Material(
+                        color: Colors.blue, // button color
+                        child: InkWell(
+                          splashColor: Colors.red, // inkwell color
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            child: Image.asset('assets/images/Ghost.jpg'),
+                          ),
+                          onTap: () {},
+                        ),
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                          PopupMenuButton<String>(
+                            onSelected: handleClick,
+                            itemBuilder: (BuildContext context) {
+                              return {'Logout', 'Settings'}.map((String choice) {
+                                return PopupMenuItem<String>(
+                                  value: choice,
+                                  child: Text(choice),
+                                );
+                              }).toList();
+                            },
+                          ),
+                        ],
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               ShowCard(),
               SizedBox(
                 height: 20,
@@ -73,8 +130,8 @@ class _FrontPageState extends State<FrontPage> {
                       height: 40,
                     ),
                     Container(
-                      height: 100,
-                      child: ListView(children: <Widget>[ShowCell()]),
+                      height: 240,
+                      child: ListView(children:  getListViewCells()),
                     )
                   ],
                 ),
@@ -82,6 +139,27 @@ class _FrontPageState extends State<FrontPage> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar:BottomNavigationBar(
+        type: BottomNavigationBarType.fixed ,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_outlined,color: Color.fromARGB(255, 0, 0, 0)),
+              title: new Text('')
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite_border_outlined,color: Color.fromARGB(255, 0, 0, 0)),
+              title: new Text('')
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search_outlined,color: Color.fromARGB(255, 0, 0, 0)),
+              title: new Text('')
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_active_outlined,color: Color.fromARGB(255, 0, 0, 0)),
+              title: new Text('')
+          )
+        ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
