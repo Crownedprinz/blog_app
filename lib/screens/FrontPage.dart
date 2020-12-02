@@ -30,8 +30,6 @@ class _FrontPageState extends State<FrontPage> {
     List<Widget> widgets = [];
     widgets.add(ShowCell());
     widgets.add(ShowCell());
-    widgets.add(ShowCell());
-    widgets.add(ShowCell());
     return widgets;
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 import 'ShowTimer.dart';
 
@@ -13,41 +14,59 @@ class ShowCell extends StatefulWidget {
 class ShowCellState extends State<ShowCell> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(flex: 2, child: Image.asset('assets/images/gamePad.jpeg')),
-        SizedBox(
-          width: 20,
-        ),
-        Expanded(
-            flex: 6,
+    return Container(
+      // color: Colors.pink,
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: Container(
+              height: 80,
+              width: 80,
+              // decoration: BoxDecoration(),
+              // color: Colors.black,
+              child:
+              Image.asset('assets/images/gamePad.jpeg', fit: BoxFit.cover),
+            ),
+          ),
+          SizedBox(width: 15),
+          Expanded(
             child: Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // new TextField(
-                //   textAlign: TextAlign.center,
-                //   decoration: new InputDecoration(
-                //       border: new OutlineInputBorder(
-                //         borderRadius: const BorderRadius.all(
-                //           const Radius.circular(10.0),
-                //         ),
-                //       ),
-                //       filled: true,
-                //       hintStyle: new TextStyle(color: Colors.white),
-                //       hintText: "DESIGN",
-                //       fillColor: Colors.deepPurple),
-                // ),
-                Text(
-                  'Top 10 techniques to get rid of clutters in design system',
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none),
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xff503e9d),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      padding: EdgeInsets.all(4),
+                      child: Text(
+                        'DESIGN',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                ShowTimer(),
+                SizedBox(height: 15),
+                Text(
+                  'Top 10 Techniques to get rid of clustters in design system',
+                  style: TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w700),
+                ),
+                SizedBox(height: 15),
+                ShowTimer()
               ],
-            ))
-      ],
+            ),
+          )
+        ],
+      ),
     );
+
   }
 }
