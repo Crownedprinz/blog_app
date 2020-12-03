@@ -1,3 +1,4 @@
+import 'package:blog_app/screens/LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'screens/FrontPage.dart';
 import 'screens/MyHomePage.dart';
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FrontPage(title: 'Code Clan Blog'),
+      home: LoginPage(title: 'Code Clan Blog'),
     );
   }
 }
