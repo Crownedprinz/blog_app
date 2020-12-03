@@ -1,8 +1,8 @@
 import 'package:blog_app/screens/LoginPage.dart';
 import 'package:blog_app/screens/SignUp.dart';
+import 'package:blog_app/screens/WelcomePage.dart';
 import 'package:flutter/material.dart';
 import 'screens/FrontPage.dart';
-import 'screens/MyHomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUp(title: 'Code Clan Blog'),
+      home: WelcomePage(title: 'Code Clan Blog'),
     );
   }
 }
