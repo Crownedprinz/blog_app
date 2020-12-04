@@ -1,4 +1,5 @@
 import 'package:blog_app/screens/ShowTimer.dart';
+import 'package:blog_app/screens/StoryPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -35,6 +36,7 @@ class _FrontPageState extends State<FrontPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -88,11 +90,28 @@ class _FrontPageState extends State<FrontPage> {
               ),
               Padding(
                   padding: EdgeInsets.only(left: 30, right: 50.0),
-                  child: Text(
-                    'How to run a More Effective Meeting',
-                    style:
-                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  )),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => StoryPage()),
+                      );
+                    },
+                    child: new Container(
+                      child: new Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          new Text(
+                            'How to run a More Effective Meeting',
+                            style:
+                            TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ),
               SizedBox(
                 height: 10,
               ),
