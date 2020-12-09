@@ -1,4 +1,3 @@
-import 'package:blog_app/models/Generic_api_response.dart';
 import 'package:blog_app/models/auth_res_model.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';

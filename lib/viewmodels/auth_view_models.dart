@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/all.dart';
 
 class AuthViewModel extends ChangeNotifier{
-  AuthViewModel(){
-    login();
-  }
+  // AuthViewModel(){
+  //   login();
+  // }
 
   AuthService _authService = AuthService();
   bool loading = false;
@@ -21,6 +21,7 @@ class AuthViewModel extends ChangeNotifier{
     try{
       final response = await _authService.login();
       auth = response;
+      loading = false;
       notifyListeners();
     }catch(e){
       error = true;

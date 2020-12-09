@@ -69,8 +69,9 @@ class LoginPage extends HookWidget {
     Widget _submitButton() {
       return InkWell(
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FrontPage()));
+          authVm.login();
+          // Navigator.push(
+          //     context, MaterialPageRoute(builder: (context) => FrontPage()));
         },
         child: Container(
           width: MediaQuery.of(context).size.width,
