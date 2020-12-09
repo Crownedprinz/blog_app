@@ -149,10 +149,6 @@ class _StoryPageState extends State<StoryPage> {
               icon: Icon(Icons.search_outlined,color: Color.fromARGB(255, 0, 0, 0)),
               title: new Text('')
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_active_outlined,color: Color.fromARGB(255, 0, 0, 0)),
-              title: new Text('')
-          )
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
