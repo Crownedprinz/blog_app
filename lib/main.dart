@@ -1,10 +1,9 @@
 import 'package:blog_app/screens/StoryPage.dart';
 import 'package:blog_app/screens/WelcomePage.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/all.dart';
 
 void main() {
-  runApp(ProviderScope(child: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
