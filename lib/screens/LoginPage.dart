@@ -13,6 +13,8 @@ import 'SignUp.dart';
 class LoginPage extends HookWidget {
   LoginPage({Key key, this.title}) : super(key: key);
 
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
   final String title;
 
   // @override
@@ -42,7 +44,7 @@ class LoginPage extends HookWidget {
       );
     }
 
-    Widget _entryField(String title, {bool isPassword = false}) {
+    Widget _entryField(String title, TextEditingController controller, {bool isPassword = false}) {
       return Container(
         margin: EdgeInsets.symmetric(vertical: 10),
         child: Column(
@@ -56,6 +58,7 @@ class LoginPage extends HookWidget {
               height: 10,
             ),
             TextField(
+                controller: controller,
                 obscureText: isPassword,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -69,9 +72,13 @@ class LoginPage extends HookWidget {
     Widget _submitButton() {
       return InkWell(
         onTap: () {
+          authVm.email=emailController.text;
+          authVm.password=passwordController.text;
           authVm.login();
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => FrontPage()));
+          authVm.success?
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => FrontPage())):
+          print(authVm?.auth?.message);
         },
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -239,8 +246,8 @@ class LoginPage extends HookWidget {
     Widget _emailPasswordWidget() {
       return Column(
         children: <Widget>[
-          _entryField("Email id"),
-          _entryField("Password", isPassword: true),
+          _entryField("Email id",emailController),
+          _entryField("Password",passwordController, isPassword: true),
         ],
       );
     }

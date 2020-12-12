@@ -8,4 +8,9 @@ class AuthRepository{
     final response = _authService.login();
     return response;
   }
+
+  Future<AuthResponse> signup() async {
+    final response = _authService.signup();
+    return response;
+  }
 }

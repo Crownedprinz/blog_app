@@ -7,24 +7,54 @@ class AuthViewModel extends ChangeNotifier{
   // AuthViewModel(){
   //   login();
   // }
+  AuthViewModel({this.email,this.password,this.name});
 
   AuthService _authService = AuthService();
   bool loading = false;
   bool error = false;
   bool success = false;
-
+  String name;
+  String email;
+  String password;
   AuthResponse auth;
 
   Future<void> login() async{
     loading = true;
     notifyListeners();
     try{
+      _authService.email = email;
+      _authService.password = password;
       final response = await _authService.login();
       auth = response;
       loading = false;
+      success = true;
+      error = false;
       notifyListeners();
     }catch(e){
       error = true;
+      success = false;
+      loading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<void> signup() async{
+    loading = true;
+    notifyListeners();
+    try{
+      _authService.name = name;
+      _authService.email = email;
+      _authService.password = password;
+      final response = await _authService.signup();
+      auth = response;
+      loading = false;
+      success = true;
+      error = false;
+      notifyListeners();
+    }catch(e){
+      error = true;
+      success = false;
+      loading = false;
       notifyListeners();
     }
   }
