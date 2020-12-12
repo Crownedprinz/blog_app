@@ -31,9 +31,14 @@ dependencies:
   flutter_icons: ^1.1.0
   flutter_svg: ^0.19.1
   google_fonts: ^1.1.1
+  floating_bottom_navigation_bar: ^1.4.1
+  dio: ^3.0.9
+  pretty_dio_logger: ^1.1.1
+  riverpod: ^0.12.1
+  hooks_riverpod: ^0.12.1
+  flutter_hooks: ^0.15.0
 
 dev_dependencies:
-  floating_bottom_navigation_bar: ^1.4.1
   flutter_test:
     sdk: flutter
 
